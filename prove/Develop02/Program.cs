@@ -4,14 +4,15 @@ class Program
     static void Main(string[] args)
     {
         string selection = "0";
-        Journal _journal = new Journal();
-        File _file = new File();
-        Entry _entry = new Entry();
-        Prompt _prompts = new Prompt();
-        _prompts.Add("Did you talk with someone new today?");
-        _prompts.Add("What was the weather like?");
-        _prompts.Add("Any teaching in class that stuck out to you?");
-        _prompts.Add("In what ways did you see Gods hand in your life today?");
+        Journal myJournal = new Journal();
+        
+        // _entry.
+        Prompt prompt1 = new Prompt();
+        prompt1._promptList.Add("what was the strongest emotion you felt today?");
+        prompt1._promptList.Add("Did you talk with someone new today?");
+        prompt1._promptList.Add("What was the weather like?");
+        prompt1._promptList.Add("Any teaching in class that stuck out to you?");
+        prompt1._promptList.Add("In what ways did you see Gods hand in your life today?");
 
         do
         {
@@ -20,31 +21,32 @@ class Program
             Console.WriteLine("3 load file");
             Console.WriteLine("4 Display Journal");
             Console.WriteLine("5 quit");
-            // Console.WriteLine("6 add entry prompt");
             selection = Console.ReadLine();
 
-            if (selection = "1")
+            if (selection == "1")
             {
-                Prompt.RandomPromptDisplay(_prompts);
-                _entry = Console.ReadLine();
-                string time = Entry.GetTime();
-                _journal.Add(time);
-                _journal.Add(_entry);
+                Entry fullEntry = new Entry();
+                string prompt = prompt1.RandomPromptDisplay();
+                string entryText = Console.ReadLine();
+                string time = fullEntry.CurrentTime();
+                fullEntry._time = time;
+                fullEntry._prompt = prompt;
+                fullEntry._entry = entryText;
+                myJournal._journal.Add(fullEntry);
             }
-            else if (selection = "2")
+            else if (selection == "2")
             {
-                _file.SaveFile();
+                myJournal.SaveFile();
             }
-            else if (selection = "3")
+            else if (selection == "3")
             {
-                _entry = _file.LoadFile();
-                _prompts = _file.Loadprompts();
+                myJournal = myJournal.LoadFile();
             }
-            else if (selection = "4")
+            else if (selection == "4")
             {
-                _journal.DisplayJournal();
+                myJournal.DisplayJournal();
             }
-            else if (selection = "5")
+            else if (selection == "5")
             {
                 Console.WriteLine("program end");
             }
@@ -52,7 +54,7 @@ class Program
             // {
             //     Console.WriteLine("What is the prompt you want to add?");
             //     string _newprompt = Console.ReadLine();
-            //     _prompts.Add(_newprompt)
+            //     prompt1.Add(_newprompt)
             // }
             else
             {
@@ -61,10 +63,3 @@ class Program
         } while (selection != "5");
     }
 }
-
-/*questions
-underscore is inside of class or references
-Add
-selection error
-what should I deem worthy to put in a class
-*/
