@@ -6,4 +6,13 @@ public class Customer
     {
         return _address.IsAmerican();
     }
+    public string ShipLabel()
+    {
+        return _name + ":" + _address.GetAddress();
+    }
+    public Customer(string name, Address address)
+    {
+        _name = name;
+        _address = address;
+    }
 }

@@ -1,10 +1,16 @@
 public class Receptions : Event
 {
-    private int _attendees;
-    public void RSVP()
+    private string _RSVP;
+    public override string EventDetails()
     {
-        Console.WriteLine("How many of your party are attending?");
-        string at = Console.ReadLine();
-        _attendees += int.Parse(at);
+        return _RSVP + " to save your place at the Reception";
+    }
+    public override string EventName()
+    {
+        return "Reception";
+    }
+    public Receptions(string title, string desc, string date, string time, Address address, string RSVP) : base(title, desc, date, time, address)
+    {
+        _RSVP = RSVP;
     }
 }

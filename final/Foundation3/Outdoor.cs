@@ -1,8 +1,17 @@
 public class Outdoor : Event
 {
     private string _weather;
-    public Outdoor(string weather)
+    public Outdoor(string title, string desc, string date, string time, Address address, string weather) : base(title, desc, date, time, address)
     {
         _weather = weather;
     }
+    public override string EventDetails()
+    {
+        return $"Outdoor: {_weather} weather";
+    }
+    public override string EventName()
+    {
+        return "Outdoor";
+    }
+
 }

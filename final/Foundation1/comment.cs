@@ -7,9 +7,9 @@ public class Comment
         _name = name;
         _text = text;
     }
-    public void Displayinfo()
+    public string Displayinfo()
     {
-        Console.WriteLine(_name + ": " + _text);
+        return _name + ": " + _text;
     }
     
 }
