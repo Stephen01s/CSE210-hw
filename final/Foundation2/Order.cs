@@ -20,16 +20,18 @@ public class Order
         }
         Console.WriteLine(cost);
     }
-    public void DisplayLabel()
+    public void DisplayShipLabel()
     {
         Console.WriteLine(_customer.ShipLabel());
         // packing label c name id of product
+    }
+    public void DisplayPackLabel()
+    {
         foreach (Product prod in _products)
         {
             Console.WriteLine(prod.PackLabel());
         }
         // shipping label c name address
-        
     }
     public Order(Customer customer, List<Product> products)
     {

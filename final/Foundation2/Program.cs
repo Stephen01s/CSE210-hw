@@ -27,9 +27,11 @@ class Program
         products2.Add(prod33);
         Order order2 = new Order(customer2, products2);
 
-        order1.DisplayLabel();
+        order1.DisplayShipLabel();
+        order1.DisplayPackLabel();
         order1.TotalCost();
-        order2.DisplayLabel();
+        order2.DisplayShipLabel();
+        order2.DisplayPackLabel();
         order2.TotalCost();
     }
 }
